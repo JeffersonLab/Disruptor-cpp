@@ -22,6 +22,7 @@ set(Disruptor_sources
     Sequence.cpp
     SequenceGroups.cpp
     SleepingWaitStrategy.cpp
+    SpinCountBackoffWaitStrategy.cpp
     SpinWait.cpp
     SpinWaitWaitStrategy.cpp
     stdafx.cpp
@@ -100,6 +101,7 @@ set(Disruptor_headers
     Sequencer.h
     SingleProducerSequencer.h
     SleepingWaitStrategy.h
+    SpinCountBackoffWaitStrategy.h
     SpinWait.h
     SpinWaitWaitStrategy.h
     ThreadPerTaskScheduler.h

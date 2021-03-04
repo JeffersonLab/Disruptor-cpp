@@ -22,8 +22,6 @@ if(Boost_FOUND)
     message(STATUS "Boost lib dir release = " ${Boost_LIBRARY_DIR_RELEASE})
     message(STATUS "Boost lib dir debug = " ${Boost_LIBRARY_DIR_DEBUG})
 
-
-    message(STATUS "Boost diagnostic defs = " ${Boost::diagnostic_definitions})
     message(STATUS "Boost use static libs = " ${Boost_USE_STATIC_LIBS})
 
 endif()

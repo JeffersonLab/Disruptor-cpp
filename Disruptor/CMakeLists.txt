@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 2.6)
 find_package(Boost COMPONENTS system thread chrono)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
+    link_directories(${Boost_LIBRARY_DIRS})
 endif()
 
 include_directories("..")

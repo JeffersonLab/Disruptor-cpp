@@ -1,29 +1,9 @@
 project(Disruptor)
 cmake_minimum_required(VERSION 2.6)
 
-find_package(Boost 1.69 COMPONENTS system thread chrono)
+find_package(Boost COMPONENTS system thread chrono)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
-    link_directories(${Boost_LIBRARY_DIRS})
-
-    message(STATUS "Boost include dirs = " ${Boost_INCLUDE_DIRS})
-    message(STATUS "Boost lib dirs = " ${Boost_LIBRARY_DIRS})
-
-    message(STATUS "Boost libs = " ${Boost_LIBRARIES})
-    message(STATUS "Boost thread lib = " ${Boost_THREAD_LIBRARY})
-
-    message(STATUS "Boost version macro = " ${Boost_VERSION_MACRO})
-    message(STATUS "Boost version string = " ${Boost_VERSION_STRING})
-    message(STATUS "Boost version major = " ${Boost_VERSION_MAJOR})
-
-    message(STATUS "Boost version = " ${Boost_VERSION})
-    message(STATUS "Boost lib version = " ${Boost_LIB_VERSION})
-
-    message(STATUS "Boost lib dir release = " ${Boost_LIBRARY_DIR_RELEASE})
-    message(STATUS "Boost lib dir debug = " ${Boost_LIBRARY_DIR_DEBUG})
-
-    message(STATUS "Boost use static libs = " ${Boost_USE_STATIC_LIBS})
-
 endif()
 
 include_directories("..")

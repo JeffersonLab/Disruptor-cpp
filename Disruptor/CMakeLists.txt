@@ -1,6 +1,31 @@
 project(Disruptor)
 cmake_minimum_required(VERSION 2.6)
 
+
+# Set architecture-related string for installation consistent with scons file
+set(ARCH ${CMAKE_HOST_SYSTEM_NAME}-${CMAKE_HOST_SYSTEM_PROCESSOR})
+message(STATUS "ARCH = " ${ARCH})
+
+
+# Install into $CODA_INSTALL directory
+if (DEFINED CODA_INSTALL)
+    message(STATUS "CODA_INSTALL = " ${CODA_INSTALL})
+    set(INSTALL_DIR_DEFINED 1)
+    set(CMAKE_INSTALL_PREFIX ${CODA_INSTALL}/${ARCH})
+    set(CMAKE_INSTALL_INCLUDEDIR ${CODA_INSTALL}/common/include)
+    message(STATUS "CMAKE_INSTALL_PREFIX reset to " ${CMAKE_INSTALL_PREFIX})
+# Install into $CODA directory
+elseif (DEFINED ENV{CODA})
+    message(STATUS "CODA = " $ENV{CODA})
+    set(INSTALL_DIR_DEFINED 1)
+    set(CMAKE_INSTALL_PREFIX $ENV{CODA}/${ARCH})
+    set(CMAKE_INSTALL_INCLUDEDIR $ENV{CODA}/common/include)
+    message(STATUS "CMAKE_INSTALL_PREFIX reset to " ${CMAKE_INSTALL_PREFIX})
+else()
+    message(STATUS "Set the \"CODA\" env var or specify -DCODA_INSTALL=... on the command line or it'll be installed in /usr/local")
+endif()
+
+
 find_package(Boost COMPONENTS system thread chrono)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})

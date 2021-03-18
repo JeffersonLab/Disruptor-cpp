@@ -1,6 +1,5 @@
 #pragma once
 
-//#include <functional>
 #include <memory>
 
 #include "Disruptor/FixedSequenceGroup.h"
@@ -34,7 +33,6 @@ namespace Disruptor
              , m_gatingSequence(gatingSequence)
         {}
 
-//        PollState poll(const std::function< boolT&, std::int64_t, bool) >& eventHandler)
         template <class TEventHandler>
         PollState poll(TEventHandler&& eventHandler)
         {

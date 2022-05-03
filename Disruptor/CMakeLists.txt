@@ -126,6 +126,7 @@ add_library(DisruptorStatic STATIC ${Disruptor_sources})
 set_target_properties(DisruptorStatic PROPERTIES OUTPUT_NAME Disruptor)
 
 install(FILES ${Disruptor_headers} DESTINATION include/Disruptor)
+install(FILES ${Disruptor_headers} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 install(TARGETS DisruptorShared DisruptorStatic
     LIBRARY DESTINATION lib

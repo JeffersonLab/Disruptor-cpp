@@ -12,22 +12,31 @@ set(ARCH ${CMAKE_HOST_SYSTEM_NAME}-${CMAKE_HOST_SYSTEM_PROCESSOR})
 message(STATUS "ARCH = " ${ARCH})
 
 
-# Install into $CODA_INSTALL directory
-if (DEFINED CODA_INSTALL)
-    message(STATUS "CODA_INSTALL = " ${CODA_INSTALL})
+# Install into $DIS_INSTALL directory (general installation)
+if (DEFINED DIS_INSTALL)
+    message(STATUS "DIS_INSTALL = " ${DIS_INSTALL})
     set(INSTALL_DIR_DEFINED 1)
     set(CMAKE_INSTALL_PREFIX ${CODA_INSTALL}/${ARCH})
-    set(CMAKE_INSTALL_INCLUDEDIR ${CODA_INSTALL}/common/include)
-    message(STATUS "CMAKE_INSTALL_PREFIX reset to " ${CMAKE_INSTALL_PREFIX})
-    # Install into $CODA directory
-elseif (DEFINED ENV{CODA})
-    message(STATUS "CODA = " $ENV{CODA})
-    set(INSTALL_DIR_DEFINED 1)
-    set(CMAKE_INSTALL_PREFIX $ENV{CODA}/${ARCH})
-    set(CMAKE_INSTALL_INCLUDEDIR $ENV{CODA}/common/include/Disruptor)
+    set(CMAKE_INSTALL_INCLUDEDIR ${CODA_INSTALL}/include)
     message(STATUS "CMAKE_INSTALL_PREFIX reset to " ${CMAKE_INSTALL_PREFIX})
 else()
-    message(STATUS "Set the \"CODA\" env var or specify -DCODA_INSTALL=... on the command line or it'll be installed in /usr/local")
+    # Install into $CODA_INSTALL directory if using as part of CODA
+    if (DEFINED CODA_INSTALL)
+        message(STATUS "CODA_INSTALL = " ${CODA_INSTALL})
+        set(INSTALL_DIR_DEFINED 1)
+        set(CMAKE_INSTALL_PREFIX ${CODA_INSTALL}/${ARCH})
+        set(CMAKE_INSTALL_INCLUDEDIR ${CODA_INSTALL}/common/include)
+        message(STATUS "CMAKE_INSTALL_PREFIX reset to " ${CMAKE_INSTALL_PREFIX})
+        # Install into $CODA directory
+    elseif (DEFINED ENV{CODA})
+        message(STATUS "CODA = " $ENV{CODA})
+        set(INSTALL_DIR_DEFINED 1)
+        set(CMAKE_INSTALL_PREFIX $ENV{CODA}/${ARCH})
+        set(CMAKE_INSTALL_INCLUDEDIR $ENV{CODA}/common/include/Disruptor)
+        message(STATUS "CMAKE_INSTALL_PREFIX reset to " ${CMAKE_INSTALL_PREFIX})
+    else()
+        message(STATUS "Use -DDIS_INSTALL= or _DCODA_INSTALL <dir> on cmd line, set \"CODA\" env var, or it'll be installed in /usr/local")
+    endif()
 endif()
 
 

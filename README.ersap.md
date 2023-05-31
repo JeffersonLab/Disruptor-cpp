@@ -19,3 +19,22 @@
     cmake -DDIS_INSTALL=/daqfs/ersap/installation ..
     make install
 
+- build & install it as part of CODA (slightly different include dir)
+
+
+    cd Disruptor-cpp
+    mkdir build
+    cd build
+    cmake -DCODA_INSTALL=/daqfs/ersap/installation ..
+    make install
+
+
+or simply define the CODA environmental variable and do
+
+
+    cd Disruptor-cpp
+    mkdir build
+    cd build
+    cmake  ..
+    make install
+

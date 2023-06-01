@@ -35,7 +35,7 @@ else()
         set(CMAKE_INSTALL_INCLUDEDIR $ENV{CODA}/common/include/Disruptor)
         message(STATUS "CMAKE_INSTALL_PREFIX reset to " ${CMAKE_INSTALL_PREFIX})
     else()
-        message(STATUS "Use -DDIS_INSTALL= or _DCODA_INSTALL <dir> on cmd line, set \"CODA\" env var, or it'll be installed in /usr/local")
+        message(STATUS "Use -DINSTALL_DIR= or -DCODA_INSTALL <dir> on cmd line, set \"CODA\" env var, or it'll be installed in /usr/local")
     endif()
 endif()
 

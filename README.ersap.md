@@ -10,7 +10,7 @@
     gh repo clone JeffersonLab/Disruptor-cpp
 
 
-- build & install it into a specified dir (includes go into $INSTALL_DIR/include)
+- build & install it into $INSTALL_DIR/include, $INSTALL_DIR/lib, and $INSTALL_DIR/bin
 
 
     cd Disruptor-cpp
@@ -19,7 +19,7 @@
     cmake -DINSTALL_DIR=/daqfs/ersap/installation ..
     make install
 
-- build & install it as part of CODA (includes go into $CODA_INSTALL/common/include)
+- build & install it as part of CODA into $CODA_INSTALL/common/include, $CODA_INSTALL/&lt;arch&gt;/lib, and  $CODA_INSTALL/&lt;arch&gt;/bin
 
 
     cd Disruptor-cpp
@@ -29,9 +29,10 @@
     make install
 
 
-or simply define the CODA environmental variable (includes go into $CODA/common/include)
+or simply define the CODA environmental variable and install into $CODA/common/include, $CODA/&lt;arch&gt;/lib, and  $CODA/&lt;arch&gt;/bin
 
 
+    setenv CODA /blah/blah
     cd Disruptor-cpp
     mkdir build
     cd build

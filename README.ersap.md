@@ -1,7 +1,4 @@
-## Getting, Building, and Installing the C++ Disruptor
-
-
-
+## Disruptor Overview
 This fantastic, award-winning software package was originally written in Java
 for stock trading and then ported to C++ due its popularity. It implements
 blazingly fast ring buffers and it's lock free for single producer rings.
@@ -12,11 +9,19 @@ short on blocking queues. This particular repo is a fork of the original on whic
 a few small changes have been made.
 
 
-If you haven't done so already, look at the package's original [README file](https://github.com/JeffersonLab/Disruptor-cpp/blob/master/README.md).
+Important disruptor-related links:
+
+- [Java Disruptor](https://github.com/LMAX-Exchange/disruptor)
+- [Parent C++ Disruptor](https://github.com/Abc-Arbitrage/Disruptor-cpp)
+- [Disruptor papers](https://lmax-exchange.github.io/disruptor/)
+- [Trish Gee's Disruptor Blogs](https://trishagee.com/?s=disruptor)
+- [Java Magazine Article](https://archive.org/details/JavaMagazine2012.0304/page/n55/mode/2up)
+- [Original README File](https://github.com/JeffersonLab/Disruptor-cpp/blob/master/README.md).
 
 
+## Getting, Building, and Installing the C++ Disruptor
 
-- clone the distribution of Disruptor-cpp from the Jefferson clone of it (since some jlab specific changes were made)
+Clone the distribution of Disruptor-cpp from the Jefferson fork of it since some jlab specific changes were made
 
 
     https://github.com/JeffersonLab/Disruptor-cpp.git
@@ -26,7 +31,7 @@ If you haven't done so already, look at the package's original [README file](htt
     gh repo clone JeffersonLab/Disruptor-cpp
 
 
-- build & install it into $INSTALL_DIR/include, $INSTALL_DIR/lib, and $INSTALL_DIR/bin
+Build & install it into $INSTALL_DIR/include, $INSTALL_DIR/lib, and $INSTALL_DIR/bin
 
 
     cd Disruptor-cpp
@@ -35,7 +40,7 @@ If you haven't done so already, look at the package's original [README file](htt
     cmake -DINSTALL_DIR=/daqfs/ersap/installation ..
     make install
 
-- build & install it as part of CODA into $CODA_INSTALL/common/include, $CODA_INSTALL/&lt;arch&gt;/lib, and  $CODA_INSTALL/&lt;arch&gt;/bin
+Build & install it as part of CODA into $CODA_INSTALL/common/include, $CODA_INSTALL/&lt;arch&gt;/lib, and  $CODA_INSTALL/&lt;arch&gt;/bin
 
 
     cd Disruptor-cpp
@@ -45,7 +50,7 @@ If you haven't done so already, look at the package's original [README file](htt
     make install
 
 
-or simply define the CODA environmental variable and install into $CODA/common/include, $CODA/&lt;arch&gt;/lib, and  $CODA/&lt;arch&gt;/bin
+Or simply define the CODA environmental variable and install into $CODA/common/include, $CODA/&lt;arch&gt;/lib, and  $CODA/&lt;arch&gt;/bin
 
 
     setenv CODA /blah/blah

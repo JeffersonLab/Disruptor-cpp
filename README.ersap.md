@@ -12,7 +12,7 @@ short on blocking queues. This particular repo is a fork of the original on whic
 a few small changes have been made.
 
 
-If you haven't done so already, look at the package's original [README file](file://README.md).
+If you haven't done so already, look at the package's original [README file](https://github.com/JeffersonLab/Disruptor-cpp/blob/master/README.md).
 
 
 

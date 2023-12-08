@@ -1,5 +1,21 @@
 ## Getting, Building, and Installing the C++ Disruptor
 
+
+
+This fantastic, award-winning software package was originally written in Java
+for stock trading and then ported to C++ due its popularity. It implements
+blazingly fast ring buffers and it's lock free for single producer rings.
+It's also thread-safe, eliminates cache-unfriendly false-sharing,
+uses opportunistic batching, and uses pre-allocated arrays and so supports
+cache-striding. It fills an empty spot in the C++ ecosystem which is mysteriously
+short on blocking queues. This particular repo is a fork of the original on which
+a few small changes have been made.
+
+
+If you haven't done so already, look at the package's original [README file](file://README.md).
+
+
+
 - clone the distribution of Disruptor-cpp from the Jefferson clone of it (since some jlab specific changes were made)
 
 
@@ -38,5 +54,3 @@ or simply define the CODA environmental variable and install into $CODA/common/i
     cd build
     cmake  ..
     make install
-
-##### Add some text

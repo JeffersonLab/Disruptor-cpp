@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <functional>
 #include <memory>
+#include <thread>
 
 #include "Disruptor/BlockingWaitStrategy.h"
 #include "Disruptor/InvalidOperationException.h"

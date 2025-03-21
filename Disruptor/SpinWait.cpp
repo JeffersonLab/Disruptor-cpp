@@ -111,12 +111,13 @@ namespace Disruptor
     }
 
     void SpinWait::yieldProcessor()
-    {
+    {       
 #if defined(DISRUPTOR_VC_COMPILER)
 
         ::YieldProcessor();
 
-#elif defined(DISRUPTOR_GNUC_COMPILER)
+// #elif defined(DISRUPTOR_GNUC_COMPILER)
+#elif defined(__i386__) || defined(__x86_64__)
 
         asm volatile
             (
@@ -126,7 +127,7 @@ namespace Disruptor
 
 #else
 
-# error "Unsupported platform"
+        std::this_thread::yield();
 
 #endif
     }

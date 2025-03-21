@@ -10,7 +10,9 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <sched.h>
+#if defined(__i386__) || defined(__x86_64__)
 #include <cpuid.h>
+#endif // defined(__i386__) || defined(__x86_64__)
 #include <sys/sysctl.h>
 #include <sys/syscall.h>
 #include <sys/types.h>
@@ -94,8 +96,12 @@ namespace ThreadHelper
     {
         uint32_t cpu_id;
 
+#ifdef __cpuid_count
         GETCPU(cpu_id);
-
+#else
+        // Apple silicon does not define __cpuid_count so we must skip it.
+        cpu_id = 0;
+#endif // __cpuid_count
         return cpu_id;
     }
 

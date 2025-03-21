@@ -1,6 +1,8 @@
 project(Disruptor)
 cmake_minimum_required(VERSION 2.6)
 
+include(GNUInstallDirs)
+
 find_package(Boost COMPONENTS system thread chrono)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
@@ -125,8 +127,8 @@ set_target_properties(DisruptorShared PROPERTIES SOVERSION ${DISRUPTOR_VERSION_M
 add_library(DisruptorStatic STATIC ${Disruptor_sources})
 set_target_properties(DisruptorStatic PROPERTIES OUTPUT_NAME Disruptor)
 
-install(FILES ${Disruptor_headers} DESTINATION include/Disruptor)
-install(FILES ${Disruptor_headers} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+# install(FILES ${Disruptor_headers} DESTINATION include/Disruptor)
+install(FILES ${Disruptor_headers} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/Disruptor)
 
 install(TARGETS DisruptorShared DisruptorStatic
     LIBRARY DESTINATION lib

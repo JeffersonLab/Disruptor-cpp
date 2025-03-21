@@ -137,7 +137,7 @@ namespace Disruptor
 
 #else
 
-# error "Unsupported platform"
+        std::this_thread::yield();
 
 #endif
     }

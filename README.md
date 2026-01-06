@@ -24,7 +24,7 @@ If [Boost](http://www.boost.org/) has been installed into standard system locati
 
 ```sh
 mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=release
+cmake .. -DCMAKE_BUILD_TYPE=release -DINSTALL_DIR=..
 make
 ```
 

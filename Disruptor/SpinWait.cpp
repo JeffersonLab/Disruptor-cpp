@@ -120,7 +120,8 @@ namespace Disruptor
 
         ::YieldProcessor();
 
-#elif defined(DISRUPTOR_GNUC_COMPILER)
+// #elif defined(DISRUPTOR_GNUC_COMPILER)
+#elif defined(__i386__) || defined(__x86_64__)
 
 #if defined(DISRUPTOR_CPU_ARM)
         asm volatile

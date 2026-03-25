@@ -1,5 +1,5 @@
 project(Disruptor)
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 3.16)
 
 set(DISRUPTOR_VERSION_MAJOR "1")
 set(DISRUPTOR_VERSION_MINOR "0")
